@@ -2,7 +2,7 @@
 
 An Azure resume built while going through the Cloud Guru Azure Resume Challenge
 
-This repository contains code and instructions for deploying a cloud-based CV website on **Azure**, complete with a **visitor counter** implemented using **Azure Functions** and **Cosmos DB** to track visits in real-time. This README provides setup steps, prerequisites, and an overview of the architecture.
+This repository contains code for deploying a cloud-based CV website on **Azure**, complete with a **visitor counter** implemented using **Azure Functions** and **Cosmos DB** to track visits in real-time. This README provides setup steps, prerequisites, and an overview of the architecture.
 
 📺 [ACG Projects: Build Your Resume on Azure with Blob Storage, Functions, CosmosDB, and GitHub Actions](https://www.youtube.com/watch?v=ieYrBWmkfno&t=0s) 📺
 
