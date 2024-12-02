@@ -1,30 +1,34 @@
-window.addEventListener("DOMContentLoaded", (event) => {
-  // Get the last known count from localStorage (default to 0 if not found)
-  let lastCount = localStorage.getItem("visitCount") || "Loading...";
-  document.getElementById("counter").innerText = lastCount;
+const functionKey = process.env.FUNCTION_KEY;
+const functionApi = `https://dmazureresumecounter.azurewebsites.net/api/GetAzureResumeCounter?code=${functionKey}`;
+
+window.addEventListener("DOMContentLoaded", () => {
+  // Get the last known count from localStorage (default to "Loading..." if not found)
+  const lastCount = localStorage.getItem("visitCount") || "Loading...";
+  const counterElement = document.getElementById("counter");
+  if (counterElement) {
+    counterElement.innerText = lastCount;
+  }
 
   // Fetch the latest count from the Azure Function
   getVisitCount();
 });
 
-const functionApi = "";
-
 const getVisitCount = () => {
   fetch(functionApi)
-    .then((response) => response.text()) // Fetch response as plain text
+    .then((response) => response.json()) // Fetch response as JSON
     .then((data) => {
-      console.log("Raw response from API:", data);
-      const countMatch = data.match(/\d+/);
-      const count = countMatch ? parseInt(countMatch[0], 10) : 0;
-      console.log("Extracted count:", count);
+      const count = data.count || 0; // Adjust this to match your API response
+      console.log("Fetched count:", count);
 
-      // Update the HTML element
-      document.getElementById("counter").innerText = count;
+      const counterElement = document.getElementById("counter");
+      if (counterElement) {
+        counterElement.innerText = count;
+      }
 
       // Store the latest count in localStorage
       localStorage.setItem("visitCount", count);
     })
     .catch((error) => {
-      console.error("Error occurred:", error);
+      console.error("Error occurred while fetching visit count:", error);
     });
 };
