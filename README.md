@@ -6,12 +6,6 @@ This repository contains code and instructions for deploying a cloud-based CV we
 
 📺 [ACG Projects: Build Your Resume on Azure with Blob Storage, Functions, CosmosDB, and GitHub Actions](https://www.youtube.com/watch?v=ieYrBWmkfno&t=0s) 📺
 
----
-
-## Table of Contents
-
----
-
 ## Overview
 
 This project demonstrates how to host a personal CV site with **real-time visitor tracking** using cloud services. It leverages **Azure Static Web Apps** for hosting, **Azure Functions** for serverless computing, and **Cosmos DB** for scalable data storage.
