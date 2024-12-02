@@ -3,7 +3,7 @@ const functionApi = "/api/GetAzureResumeCounter";
 window.addEventListener("DOMContentLoaded", () => {
   // Get the last known count from localStorage (default to "Loading..." if not found)
   const lastCount = localStorage.getItem("visitCount") || "Loading...";
-  const counterElement = document.getElementById("#counter");
+  const counterElement = document.getElementById("counter");
   if (counterElement) {
     counterElement.innerText = lastCount;
   }
